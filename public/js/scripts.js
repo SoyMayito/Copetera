@@ -1,3 +1,4 @@
+
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
@@ -26,6 +27,7 @@ function includeHTML() {
   }
 }
 includeHTML();
+
 AOS.init();
 AOS.init({
     disable: false,
@@ -47,9 +49,22 @@ $(window).scroll(function() {
 
 $(window).resize(function(){
     if($(window).width()<480){
-        $('.display-2').removeClass('display-2')
+        $('.display-3').removeClass('display-3')
     }
     else{
-        $('h1').addClass('display-2')
+        $('h1').addClass('display-3')
     }
+});
+
+/*SMOOTSCROLL*/
+$('a').on('click', function (e) {
+    if (this.hash !== '') {
+        e.preventDefault();
+
+        var hash = this.hash;
+        $('html,body').animate({
+            scrollTop: $(hash).offset().top
+        }, 3000);
+    }
+
 });

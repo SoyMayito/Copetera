@@ -1,7 +1,7 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
-canvas.style.width = '90vw'
+canvas.style.width = '95vw'
 canvas.style.height = '25vh'
 
 const wave = {

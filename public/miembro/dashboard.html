@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Miembros</title>
+
+
+
+
+
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+        body {
+            background: rgb(0, 0, 0);
+        }
+
+        nav {
+            width: calc(95vw-32px);
+        }
+
+        .carousel-inner img {
+            height: 100%;
+            width: 100vw;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div w3-include-html="../header.html"></div>
+    <div class="space"></div>
+    <section>
+        <h1>BIENVENIDO</h1>
+        <div class="col-lg-4"> <button style="background: linear-gradient(90deg,#F00,#DE5521);" class="btn-primary" onclick="cerrar();">Cerrar Sesión <i class="fa fa-sign-out-alt"></i> </button> </div>
+    </section>
+    <div w3-include-html="../footer.html"></div>
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
+    </script>
+    <script type="text/javascript" src="../login/auth.js"></script>
+    <script>
+        auth.onAuthStateChanged(function(user) {
+            if (user) {
+                swal("Bienvenido", "Sesión Activa", "info");
+                // User is signed in.
+                var displayName = user.displayName;
+                var email = user.email;
+                var emailVerified = user.emailVerified;
+                var photoURL = user.photoURL;
+                var isAnonymous = user.isAnonymous;
+                var uid = user.uid;
+                var providerData = user.providerData;
+                // ...
+            } else {
+                // User is signed out.
+                // ...
+                swal("Saliendo", "No estas logueado", "info");
+                location.href = "../login/index.html"
+            }
+        });
+
+    </script>
+</body>

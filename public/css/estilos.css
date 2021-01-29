@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;900&display=swap');
-html{
+html,body{
     padding: 0;
     margin: 0;
     max-width: 100vw;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    
 }
 
 
@@ -28,6 +29,171 @@ html{
 .space{
     height:  40vh;
 }
+.boton-neon{
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 0;
+    color: #cececf;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    -webkit-box-reflect: below 1 px linear-gradient(transparent,#0005);
+    
+}
+.boton-neon:hover{
+    background: #cececf;
+    text-decoration: none;
+    color: #000;
+    box-shadow: 0 0 5px #cececf,
+        0 0 25px #cececf, 0 0 50px #cececf;
+}
+
+.boton-neon span{
+    position: absolute;
+    display: block;
+}
+
+.boton-neon span:nth-child(1){
+    top:0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg,transparent,#cececf);
+    animation: neon1 2s linear infinite;
+    
+}
+
+.boton-neon span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#cececf);
+    animation: neon2 2s linear infinite;
+    animation-delay: 0.5s;
+}
+
+.boton-neon span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(270deg,transparent,#cececf);
+    animation: neon3 2s linear infinite;
+    animation-delay: 1s;
+}
+
+.boton-neon span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#cececf);
+    animation: neon4 2s linear infinite;
+    animation-delay: 1.5s;
+}
+
+.boton-neon2{
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 0;
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    -webkit-box-reflect: below 1 px linear-gradient(transparent,#0005);
+    
+}
+.boton-neon2:hover{
+    background: #000;
+    text-decoration: none;
+    color: #cececf;
+    box-shadow: 0 0 5px #000,
+        0 0 25px #000, 0 0 50px #000;
+}
+
+.boton-neon2 span{
+    position: absolute;
+    display: block;
+}
+
+.boton-neon2 span:nth-child(1){
+    top:0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg,transparent,#000);
+    animation: neon1 2s linear infinite;
+    
+}
+
+.boton-neon2 span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#000);
+    animation: neon2 2s linear infinite;
+    animation-delay: 0.5s;
+}
+
+.boton-neon2 span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(270deg,transparent,#000);
+    animation: neon3 2s linear infinite;
+    animation-delay: 1s;
+}
+
+.boton-neon2 span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#000);
+    animation: neon4 2s linear infinite;
+    animation-delay: 1.5s;
+}
+@keyframes neon1{
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left: 100%;
+    }
+}
+@keyframes neon2{
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top: 100%;
+    }
+}
+@keyframes neon3{
+    0%{
+        right: -100%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+@keyframes neon4{
+    0%{
+        bottom: -100%;
+    }
+    50%,100%{
+        bottom: 100%;
+    }
+}
 #cont{
     background-image: linear-gradient(rgba(127,127,127,0.5),rgba(0,0,0,1)),url(../images/bg.webp);
     background-size: cover;
@@ -47,11 +213,9 @@ html{
     
     max-height: 100vh;
 }
-#servicios{
+#login{
     background: rgb(0, 0, 0);
             background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(49, 49, 51, 1) 35%, rgba(58, 58, 60, 1) 61%, rgba(0, 0, 0, 1) 100%);
-    color: white;
-    height: 20vh;
 }
 
 .contact{
@@ -164,22 +328,7 @@ html{
     transform: translateY(-20px);
 }
 
-.contactForm .inputBox input[type="submit"]{
-    width: 100px;
-    background: silver;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 18px;
-    transition: 0.5s;
-}
 
-.contactForm .inputBox input[type="submit"]:hover{
-    width: 120px;
-    background: #444444;
-    font-size: 20px;
-}
 @media(max-width:991px){
     .contact{
         padding: 50px;
