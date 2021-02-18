@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias</title>
+
+
+
+
+
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background: rgb(0, 0, 0);
+        }
+
+        nav {
+            width: calc(95vw-32px);
+        }
+
+        .carousel-inner img {
+            height: 100%;
+            width: 100vw;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loadingio-spinner-radio-8qrlh2gqvwl">
+            <div class="ldio-mrse7l23ih">
+                <div></div>
+                <div></div>
+                <div></div>
+
+            </div>
+
+        </div>
+        <h2 style="color: white;">Cargando ...</h2>
+    </div>
+    <div w3-include-html="../navs/navbar.html"></div>
+    <div class="space-min"></div>
+    <div class="page-title lb single-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <h2 class="text-white"><i class="fa fa-gears bg-silver"></i> Noticias<small> <br> Noticias relacionadas con los acontecimientos recientes en el colegio.</small></h2>
+                </div><!-- end col -->
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="breadcrumb1">
+                        <a href="../index.html" class="text-muted">Home</a>&emsp;/&emsp;
+                        <a href="index.html" class="text-muted" aria-current="page">Noticias</a>
+
+                    </div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end page-title -->
+    <hr class="invis">
+    <section class="section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-wrapper">
+                        <div class="blog-grid-system">
+                            <div class="row" id="datos">
+                                <!--12 X pagina-->
+                            </div>
+                            <!-- end row -->
+                        </div><!-- end blog-grid-system -->
+                    </div><!-- end page-wrapper -->
+
+                    <hr class="invis3">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-start">
+                                    <li class="page-item" id="btn-mas"><a class="page-link text-muted" href="#footer" onclick="siguiente();">Más</a></li>
+                                    <!--<li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>-->
+                                </ul>
+                            </nav>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section>
+    <div w3-include-html="../navs/foot.html"></div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
+    </script>
+    <script>
+        var datos = document.getElementById('datos');
+        var orden = db.collection("noticias").orderBy("fecha", "desc").limit(4);
+        var lastVisible;
+        var next;
+        var img;
+
+        function traer() {
+            return orden.onSnapshot(function(documentSnapshots) {
+                datos.innerHTML = '';
+                documentSnapshots.forEach((doc) => {
+                    img = "../images/bg.webp";
+                    console.log(`${doc.id} => ${doc.data()}`);
+                    datos.innerHTML += `<div class="col-md-6">
+                                        <div class="blog-box">
+                                            <div class="post-media">
+                                                <a href="${doc.data().enlace}" title="">
+                                                    <img src="${img}" alt="" class="img-fluid">
+                                                    <div class="hovereffect">
+                                                        <span></span>
+                                                    </div><!-- end hover -->
+                                                </a>
+                                            </div><!-- end media -->
+                                            <div class="blog-meta big-meta">
+                                                <h4><a href="${doc.data().enlace}" class="text-white" title="${doc.data().titulo}">${doc.data().titulo}</a></h4>
+                                                <p class="text-s">${doc.data().descripcion}</p>
+                                                <small><a href="${doc.data().enlace}" class="text-white" title="">${doc.data().fecha}</a></small>
+                                                
+                                            </div>
+                                            <!-- end meta -->
+                                        </div><!-- end blog-box -->
+                                    </div>`
+                });
+                // Get the last visible document
+                lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
+                console.log("last", lastVisible);
+
+                // Construct a new query starting at this document,
+                // get the next 25 cities.
+                next = db.collection("noticias")
+                    .orderBy("fecha")
+                    .startAfter(lastVisible)
+                    .limit(12);
+            });
+        }
+
+        traer();
+
+        function siguiente() {
+            return next.onSnapshot(function(documentSnapshots) {
+                documentSnapshots.forEach((doc) => {
+                    console.log(`${doc.id} => ${doc.data()}`);
+
+                    datos.innerHTML += `<div class="col-md-6">
+                                        <div class="blog-box">
+                                            <div class="post-media">
+                                                <a href="${doc.data().enlace}" title="">
+                                                    <img src="${img}" alt="" class="img-fluid">
+                                                    <div class="hovereffect">
+                                                        <span></span>
+                                                    </div><!-- end hover -->
+                                                </a>
+                                            </div><!-- end media -->
+                                            <div class="blog-meta big-meta">
+                                                <h4><a href="${doc.data().enlace}" class="text-white" title="${doc.data().titulo}">${doc.data().titulo}</a></h4>
+                                                <p class="text-s">${doc.data().descripcion}</p>
+                                                <small><a href="${doc.data().enlace}" class="text-white" title="">${doc.data().fecha}</a></small>
+                                                
+                                            </div>
+                                            <!-- end meta -->
+                                        </div><!-- end blog-box -->
+                                    </div>`
+                });
+
+                lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
+                console.log("last", lastVisible);
+                if (lastVisible == undefined) {
+                    console.log('esta vacio')
+                    var paginacion = document.getElementById('btn-mas');
+                    paginacion.style.display = 'none';
+                    swal("UPS", "No hay mas publicaciones", "warning");
+                }
+
+                // Construct a new query starting at this document,
+                // get the next 25 cities.
+                next = db.collection("noticias")
+                    .orderBy("fecha", "desc")
+                    .startAfter(lastVisible)
+                    .limit(12);
+
+            });
+        }
+
+
+        /*orden.onSnapshot((querySnapshot) => {
+            
+        });*/
+
+    </script>
+
+
+
+</body>
+
+</html>

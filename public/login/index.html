@@ -11,9 +11,9 @@
 
 
     <link rel="stylesheet" href="../css/estilos.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             background: rgb(0, 0, 0);
@@ -32,8 +32,20 @@
 </head>
 
 <body id="login">
-    <div w3-include-html="../header.html"></div>
-    <div class="space"></div>
+    <div id="preloader">
+        <div class="loadingio-spinner-radio-8qrlh2gqvwl">
+            <div class="ldio-mrse7l23ih">
+                <div></div>
+                <div></div>
+                <div></div>
+
+            </div>
+
+        </div>
+        <h2 style="color: white;">Cargando ...</h2>
+    </div>
+    <div w3-include-html="../navs/navbar.html"></div>
+    <div class="space-min"></div>
     <section>
         <div class="container">
             <div class="contactForm" data-aos="zoom-in">
@@ -87,7 +99,7 @@
         </div>
     </section>
     <div class="space"></div>
-    <div w3-include-html="../footer.html"></div>
+    <div w3-include-html="../navs/foot.html"></div>
 
 
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
@@ -96,6 +108,8 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
 
 
 
@@ -108,4 +122,7 @@
     </script>
     <script type="text/javascript" src="auth.js"></script>
 
+
 </body>
+
+</html>

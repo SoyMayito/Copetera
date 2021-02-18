@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Miembros</title>
+
+
+
+
+
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background: rgb(0, 0, 0);
+        }
+
+        nav {
+            width: calc(95vw-32px);
+        }
+
+        .carousel-inner img {
+            height: 100%;
+            width: 100vw;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loadingio-spinner-radio-8qrlh2gqvwl">
+            <div class="ldio-mrse7l23ih">
+                <div></div>
+                <div></div>
+                <div></div>
+
+            </div>
+
+        </div>
+        <h2 style="color: white;">Cargando ...</h2>
+    </div>
+    <div w3-include-html="../navs/navbar.html"></div>
+    <div class="space-min"></div>
+
+
+    <div class="row py-5 px-4">
+        <div class="col-md-12 mx-auto">
+
+            <div class="bg-white shadow rounded overflow-hidden">
+                <div class="px-5 pt-0 pb-5 cover">
+                    <div class="media align-items-end profile-head px-1">
+                        <div class="profile"><img src="" alt="..." width="180" class="rounded mb-2 img-thumbnail" id="foto-perfil"></div>
+                        <div class="media-body mb-5 text-black">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex text-center">
+                    <div class="col-md-4">
+                        <h4 class="mt-5 mb-3">Mario Gonzalez Perez</h4>
+                        <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>Ciudad de México</p>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="boton-neon2" data-toggle="modal" data-target="#exampleModal">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Editar Datos <i class="fa fa-edit"></i> </button>
+                    </div>
+                    <div class="col-md-4"><button class="boton-neon2" onclick="cerrar();">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Cerrar Sesión <i class="fa fa-sign-out"></i> </button> </div>
+
+
+                </div>
+                <div class="px-4 py-3">
+                    <h5 class="mb-0">Acerca</h5>
+                    <div class="p-4 rounded shadow-sm bg-light">
+                        <p class="font-italic mb-0">Ing. en Comunicaciones y Electronica</p>
+                        <p class="font-italic mb-0">Lives in New York</p>
+                        <p class="font-italic mb-0">Photographer</p>
+                    </div>
+                </div>
+                <div class="py-4 px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                        <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://images.unsplash.com/photo-1493571716545-b559a19edd14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                        <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://images.unsplash.com/photo-1453791052107-5c843da62d97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                        <div class="col-lg-6 pl-lg-1"><img src="https://images.unsplash.com/photo-1475724017904-b712052c192a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar datos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="contactForm" data-aos="zoom-in">
+                        <form id="form-member">
+                            <div class="inputBox">
+                                <input type="text" id="nombre" required="required">
+                                <span>Nombre Completo</span>
+                            </div>
+                            <div class="inputBox">
+                                <input type="email" id="email" required="required"> <span>Correo</span>
+                            </div>
+                            <div class="inputBox">
+                                <input type="tel" id="phone" required=""></input>
+                                <span>Teléfono</span>
+                            </div>
+                            <div class="inputBox">
+                                <input type="text" id="carrera" required="required"></input>
+                                <span>Estudios</span>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="image">
+                                    Subir Foto
+                                </label>
+                                <progress value="0" max="100" id="uploader">
+                                    
+                                </progress>
+                                <input type="file" class="form-control-file" id="image"></input>
+                                <hr>
+                                <label for="estado">Estado de Residencia</label>
+                                <select class="form-control" id="estado">
+                                    <option value="Ciudad de México">Ciudad de México</option>
+                                    <option value="Aguascalientes">Aguascalientes</option>
+                                    <option value="Baja California">Baja California</option>
+                                    <option value="Baja California Sur">Baja California Sur</option>
+                                    <option value="Campeche">Campeche</option>
+                                    <option value="Chiapas">Chiapas</option>
+                                    <option value="Chihuahua">Chihuahua</option>
+                                    <option value="Coahuila">Coahuila</option>
+                                    <option value="Colima">Colima</option>
+                                    <option value="Durango">Durango</option>
+                                    <option value="MEX">Estado de México</option>
+                                    <option value="Guanajuato">Guanajuato</option>
+                                    <option value="Guerrero">Guerrero</option>
+                                    <option value="Hidalgo">Hidalgo</option>
+                                    <option value="Jalisco">Jalisco</option>
+                                    <option value="Michoacán">Michoacán</option>
+                                    <option value="Morelos">Morelos</option>
+                                    <option value="Nayarit">Nayarit</option>
+                                    <option value="Nuevo León">Nuevo León</option>
+                                    <option value="Oaxaca">Oaxaca</option>
+                                    <option value="Puebla">Puebla</option>
+                                    <option value="Querétaro">Querétaro</option>
+                                    <option value="Quintana Roo">Quintana Roo</option>
+                                    <option value="San Luis Potosí">San Luis Potosí</option>
+                                    <option value="Sinaloa">Sinaloa</option>
+                                    <option value="Sonora">Sonora</option>
+                                    <option value="Tabasco">Tabasco</option>
+                                    <option value="Tamaulipas">Tamaulipas</option>
+                                    <option value="Tlaxcala">Tlaxcala</option>
+                                    <option value="Veracruz">Veracruz</option>
+                                    <option value="Yucatán">Yucatán</option>
+                                    <option value="Zacatecas">Zacatecas</option>
+                                </select>
+
+                            </div>
+                            <button type="submit" class="btn boton-neon2">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                Guardar <i class="fa fa-floppy-o"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div w3-include-html="../navs/foot.html"></div>
+
+
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
+    </script>
+    
+
+</body>
+
+</html>
